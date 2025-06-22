@@ -1,138 +1,97 @@
-# IOP – C Infrastructure & Java Front‑End for IOP System 🚀
+# 🚕 Cab Service Feedback Analysis
 
-A complete tooling suite for SRI‑CSL’s **IOP** framework:  
-• Core C libraries and command‑line tools (`iop`)  
-• Java‑based launchers (`jlambda`) and GUI (powered by `iop.jar`)
+This project analyzes customer feedback on cab services like **Rapido**, **Ola**, and **Uber** using data collected from a survey. It utilizes Python and data visualization tools to understand key user preferences, issues, and satisfaction levels.
 
 ---
 
-## 📦 Table of Contents
-
-1. [About](#about)  
-2. [Features](#features)  
-3. [Requirements](#requirements)  
-4. [Installation](#installation)  
-5. [Usage](#usage)  
-   - [C Tools (iop)](#c-tools-iop)  
-   - [Java Launcher (jlambda)](#java-launcher-jlambda)  
-6. [Documentation](#documentation)  
-7. [Examples](#examples)  
-8. [Building from Source](#building-from-source)  
-9. [Tests](#tests)  
-10. [Roadmap](#roadmap)  
-11. [Contributing](#contributing)  
-12. [License](#license)  
-13. [Authors & Acknowledgments](#authors--acknowledgments)
-
----
-
-## ABOUT
-
-IOP (Input/Output Protocol) enables structured communication and orchestration in the Pathway Logic ecosystem. This repo provides the low‑level C code and Java integration layer for tool bundling.
-
----
-
-## FEATURES
-
-- 🔧 **C Core**: High-performance core instruments, actor messaging, protocol handling.  
-- 🛠 **CLI Tools**:  
-  - `iop`: command‑line protocol inspector/runner  
-  - `jlambda`: JVM‑based launcher for advanced workflows  
-- 🖥 **GUI Support**: Prebuilt `iop.jar` includes a Java‑Swing UI front‑end  
-- 📚 **Docs**: Full Javadoc and user manuals in `doc/`
-
----
-
-## REQUIREMENTS
-
-- **C Development**: gcc/clang, make, GNU make  
-- **Java** (minimum JRE/JDK 8) — required for `jlambda` and GUI  
-- **Optional**: coverity or Travis CI scripts may require Perl, etc.
-
----
-
-## INSTALLATION
+## 📁 Project Structure
 
 ```bash
-git clone https://github.com/SRI-CSL/iopc.git
-cd iopc
-export IOPBINDIR=/usr/local/bin
-make
-sudo make install
-USAGE
-C Tools (iop)
-bash
-Copy
-Edit
-iop --help
-# Common commands: inspect, run, debug, version
-Java Launcher (jlambda)
-bash
-Copy
-Edit
-export PATH=$IOPBINDIR:$PATH
-jlambda --help
-# To run GUI:
-iop-gui
-DOCUMENTATION
-Javadoc (for iop.jar): see doc/javadoc/
+.
+├── Cab (2).ipynb                      # Jupyter Notebook with analysis and visualizations
+├── car.csv                            # Preprocessed or merged data file used for analysis
+├── Cab Service Feedback Survey.pdf    # Raw survey responses (exported from Google Forms)
+└── README.md                          # Project documentation
+📊 Features
+Exploratory Data Analysis (EDA) on survey responses
 
-User Manuals:
+Gender- and age-wise usage trends
 
-doc/jlambda_manual.md
+Visualizations for:
 
-doc/iop_manual.md
+Most used cab service
 
-EXAMPLES
-Check scripts/ and lib/ for sample workflows. Typical usage:
+Reasons for choosing a cab service
+
+Issues like price, availability, safety, and discomfort
+
+Insights into frequency of use, ride satisfaction, and recommendation likelihood
+
+📦 Requirements
+You can install the required packages via pip:
 
 bash
 Copy
 Edit
-# Simple CLI run
-iop --config examples/sample.cfg
-
-# Java front‑end
-jlambda examples/sample.json
-BUILDING FROM SOURCE
-bash
-Copy
-Edit
-make clean
-make
-# For verbose build:
-make V=1
-TESTS
-(If test suite exists; otherwise omit or note future addition.)
+pip install pandas matplotlib seaborn jupyter
+🧪 How to Run
+Clone this repository:
 
 bash
 Copy
 Edit
-make test
-ROADMAP
- Add integration tests
+git clone https://github.com/yourusername/cab-feedback-analysis.git
+cd cab-feedback-analysis
+Open the notebook:
 
- Expand protocol support (e.g. TLS, JSON-based protocols)
+bash
+Copy
+Edit
+jupyter notebook "Cab (2).ipynb"
+Run the cells to view the analysis and plots.
 
- Modernize GUI (JavaFX or web front‑end)
+📈 Sample Insights
+Rapido is the most preferred service among surveyed users.
 
-CONTRIBUTING
-Contributions are welcome! Please:
+Key concerns include:
 
-Fork the repo
+Price sensitivity
 
-Create a feature branch (git checkout -b feature-x)
+Poor pickup/drop experiences
 
-Commit changes with clear messages
+Demands for extra payment by drivers
 
-Submit a PR
+Evening rides are more common among users.
 
-Refer to [CONTRIBUTING.md] for guidelines.
+📄 Data Source
+Survey Data: Collected using Google Forms
 
-LICENSE
-This project is licensed under the GPL‑2.0. See LICENSE for details.
+CSV File: Cleaned version of the raw survey responses used for analysis (car.csv)
 
-AUTHORS & ACKNOWLEDGMENTS
-SRI‑CSL: original authors and guardians of the IOP system
+✍️ Author
+Rangampeta Srihari
 
-This open‑source port maintained by the IOP community
+LinkedIn: linkedin.com/in/srihari1343
+
+📜 License
+This project is licensed under the MIT License.
+
+💡 Future Improvements
+Integrate with a dashboard (e.g., Streamlit) for interactive insights
+
+Apply clustering or classification for deeper behavioral segmentation
+
+Include real-time data collection via Google Sheets API
+
+yaml
+Copy
+Edit
+
+---
+
+Let me know if you'd like:
+- a visual badge-style header
+- `.ipynb` converted to `.py` for better compatibility
+- deployment instructions for a Streamlit dashboard or web interface
+
+I can also generate a LICENSE and requirements.txt file if you're publishing this.
